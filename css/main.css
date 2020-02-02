@@ -1,0 +1,314 @@
+/* WEBFONT */
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Montserrat&display=swap');
+
+/*
+    Propriétés personnalisées
+*/
+
+:root {
+    --leading: 2em;
+}
+
+
+/* Pas sure si c'est efficace en réalité mais bon c'est pratique*/
+:root * {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', 'sans-serif';
+}
+
+/*
+    Cette div n'a aucune influence sur la div section en terme de position
+    du coup la section est manipulable sans problème 
+*/
+.hero-bg {
+    background : red url("../images/bg.jpg");
+    background-position: 60% 83%; /* X et Y*/
+    text-align: center;
+    color: #ffffff;
+    padding-bottom: 8em;
+}
+
+/* Top and bottom padding  */
+header {
+    padding: 1em 0em
+}
+
+.hero-bg a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2rem;
+    padding-bottom: .7em;
+}
+
+h1 span {
+    text-transform: uppercase;
+    display: block;
+    font-size: 1.5em;
+    position: relative;
+    z-index: 1;
+
+}
+
+/*
+    Quand on utilise absolute il doit être relative au container
+    Le container du span est le h1 span pas le h1 seul ?? c'est comme ça
+    On obtient alors ce trait bleu positionné en bas h1 
+*/
+h1 span::before {
+    content: '';
+    position: absolute;
+    width: 3em;
+    background: #00BFFF;
+    height: .1em;
+    bottom: 0;
+    z-index: -1;
+    margin-left: -.3em;
+}
+
+.hero-bg p {
+    font-weight: bold;
+    margin: 0 1em 3em;
+}
+
+.form-container {
+    background-color: #ffffff;
+    padding: 2em;
+}
+
+label {
+    color: #2D7D98;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+}
+
+
+input[type=text] {
+    border:1px solid #707070;
+    width: 100%;
+    padding: 1em;
+    border-radius: .5em;
+    margin-top: 1.2em;
+}
+
+.form-container p {
+    color: gray;
+    font-weight: normal;
+    font-size: .9em;
+    margin-top: .3em;
+}
+
+input[type=button]{
+    background-color: #F89104;
+    border: none;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    padding: 1em 0;
+    border-radius: .5em;
+    font-size:1em;
+    cursor: pointer;
+}
+
+input[type=button]:hover {
+    background-color: rgba(248, 146, 4, 0.699);
+    font-weight: normal;
+}
+
+/* L'image devient fluide ! */
+img {
+    width: 100%
+}
+
+.right-col {
+    text-align: center;
+    margin: 1em 1em;
+    padding-top: 1em;
+}
+h2 {
+    text-transform: uppercase;
+    position: relative;
+}
+
+h2::before {
+    content: '';
+    position: absolute;
+    width: 3em;
+    background: #00BFFF;
+    height: .1em;
+    bottom: 0;
+    z-index: -1;
+    margin-left: -.3em;
+}
+
+p {
+    line-height: var(--leading);
+}
+/*
+
+Travail sur l'overlay 
+
+.overlay{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    color:rgba(0,0,0,.9);
+    z-index: 10;
+    place-content: center;
+    color: white;
+    display: grid;
+}
+
+.animate-overlay{
+    animation: overlay;
+}
+*/
+/*Au dessus de 730px On passe a la tablette*/
+
+@media(min-width: 730px){
+
+    section {
+        margin: 0 4em;
+    }
+
+    /* top right-left bottom */
+    .form-container {
+        padding: 2em -4em 0;
+    }
+
+}
+
+@media(min-width: 930px){
+        
+    .hero-bg {
+        text-align: left;
+    }
+
+    .hero-bg p {
+        margin: 0 0 3em;
+    }
+
+    .hero-bg section{
+        width: 65%;
+    }
+
+    .form-container{
+        margin: 2em 0 0;
+        padding: 2em;
+        border-radius: .5em;
+        box-shadow: 10px 10px 10px;
+    }
+
+    /*FLex ou css grid ? */
+    form{
+        display: flex; 
+        align-items: center;
+    }
+
+    .form-left{
+        width: 70%;
+    }
+
+    label{
+        margin: 0;
+    }
+
+
+    .form-right{
+        width: 30%;
+        margin-left: 5em;
+    }
+
+
+    .hero-bg p{
+        margin-bottom: 0;
+    }
+
+    /*CSS GRID , on a besoin de 2 colonnes */
+    /*On doit inverser le bloc gauche avec le droit 
+        colonne_gauche declaré en 1er donc va a gauche
+        colonne_droite declaree en 2eme donc va a droite
+    */
+    section.authentic {
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        grid-template-areas: 
+            "colonne_gauche colonne_droite";
+
+    }
+
+    /*
+        Align-self propriété de css grid permet d'aligner 
+        verticalement le contenu peu importe la taille du device 
+    */
+    .right-col{
+        grid-area: colonne_droite;
+        text-align: center;
+        align-self: center;
+    }
+
+    .img_wrapper{
+        grid-area: colonne_gauche;
+        padding: 3em 2em 0 0;
+    }
+
+
+    /****************************************************/
+
+    h2{
+        margin: 0;
+    }
+
+
+} /* FIN DE MEDIA QUERY */
+
+
+/* On donne le nom de l'animation : fadeIn
+    On commence à l'opacité 0 (invisible) puis on va a 1 (visible)
+    On veut une animation de haut en bas donc transformY (axe Y)
+*/
+.top{
+    animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn{
+    from {
+        opacity: 0;
+        transform: translateY(-2em)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+/*10 seconde d'animation*/
+@keyframes overlay{
+    from {
+        opacity: 0%
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    70%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
+    }
+}

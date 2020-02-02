@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Responsive - fluide website  </title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+        <!--
+        <div class="overlay" id="overlay">
+            <h3>En train de chercher </h3>
+        </div>
+        -->
+
+        <!-- 
+            Cette div n'a aucun impacte de disposition 
+            au niveau de la section
+         -->
+        <div class="hero-bg">
+            <section class="top">
+                <!-- header de la section -->
+                <header> 
+                    <a href="#">LOGO</a>
+                    <!--    <nav>
+                        <ul>
+
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </nav>
+                -->
+                    
+                </header>
+
+
+                    <h1>  <span>World Of</span> PEACE </h1>
+
+                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Unde, sequi dolore! Quam voluptate amet at asperiores tempore! 
+                            Voluptatibus qui, quam doloribus veniam sunt non dolorum eius 
+                            labore numquam sapiente quaerat. 
+                    </p>
+                     <!-- le formulaire pour desktop est découpé en deux donc crée la classe en conséquent -->
+                    <div>
+                        <form action="" class="form-container">
+
+                            <div class="form-left">
+                                <label for="coty">Entrez votre ville</label>
+                                <input type="text" name="city" id="city" >
+                                <p>Example : Paris</p>
+                            </div>
+                            <div class="form-right">
+                                <input type="button" value="Trouver a manger" id="cityBtn">
+                            </div>
+
+                        </form>
+                    </div>
+            </section>
+        </div>
+
+        <!-- Deuxieme section -->
+        <section class="authentic">
+            <div class="right-col">
+                <h2>Authentic Awesome</h2>
+
+                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis dolores temporibus vel beatae provident aspernatur, 
+                    inventore est excepturi corrupti ex eveniet neque maxime qui animi totam, 
+                    alias consequatur ducimus voluptates!  
+                </p>
+            </div>
+            <div class="img_wrapper">
+                <img src="./images/food.jpg" alt=""> 
+            </div>
+
+        </section>
+
+    <footer>
+
+    </footer>
+
+    <script>
+
+        // On récupère les élements HTML
+         let btn = document.getElementById("cityBtn");
+         let overlay = getElementById("overlay");
+
+        // On ajoute un event au click du boutton, syntaxe es5
+         btn.addEventListener('click', function(){
+            overelay.style.display = "grid";
+            overlay.classList.add("animate-overlay");
+         });
+    
+    </script>
+</body>
+</html>
